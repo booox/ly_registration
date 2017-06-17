@@ -8,7 +8,7 @@
       <th>线路名称</td>
       <th>线路天数</td>
       <th>出行方式</td>
-      <th>线路行程</td>
+      <th class="line_des">线路行程</td>
       <th>操作</td>
     </tr>
   </thead>
@@ -22,7 +22,7 @@
         <%= render_transportations(line.transportations) %>
         <%#= eval(line.transportations).map { |f| t(f, scope: "line.transportations") }.join('，') %>
       </td>
-      <td><%= simple_format(line.description) %></td>
+      <td class="line_des"><%= simple_format(line.description) %></td>
       <td>
         <%= link_to "Edit", edit_admin_line_path(line), class: "btn btn-primary btn-xs" %>
         <%= link_to "Delete", admin_line_path(line), method: :delete, class: "btn btn-danger btn-xs" %>
