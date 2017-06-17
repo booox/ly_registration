@@ -1,5 +1,6 @@
 class Admin::BatchesController < ApplicationController
-
+  before_action :authenticate_user!
+  before_action :admin_required
   before_action :find_batch, only: [:edit, :update, :destroy]
 
   def index

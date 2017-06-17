@@ -1,5 +1,7 @@
 class Admin::LinesController < ApplicationController
   before_action :find_line, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :admin_required
 
   def index
     @lines = Line.all
