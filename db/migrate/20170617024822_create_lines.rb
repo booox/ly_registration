@@ -4,6 +4,9 @@ class CreateLines < ActiveRecord::Migration[5.0]
       t.string :title
       t.text :description
       t.integer :batch_id
+      t.datetime :start_date
+      t.datetime :return_date
+      t.integer :days
 
       t.timestamps
     end

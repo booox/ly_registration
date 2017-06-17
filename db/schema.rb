@@ -14,17 +14,17 @@ ActiveRecord::Schema.define(version: 20170617030847) do
 
   create_table "batches", force: :cascade do |t|
     t.string   "title"
-    t.datetime "start_date"
-    t.datetime "return_date"
-    t.integer  "days"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "lines", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
     t.integer  "batch_id"
+    t.datetime "start_date"
+    t.datetime "return_date"
+    t.integer  "days"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

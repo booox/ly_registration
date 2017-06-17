@@ -1,0 +1,26 @@
+<%= simple_form_for [:admin, @line] do |f| %>
+
+  <div class="group">
+    <%= f.input :title %>
+  </div>
+
+  <div class="group">
+    <%= f.select :batch_id, Batch.all.map{ |b| [b.title, b.id] }, {}, class: "form-control" %>
+  </div>
+
+  <div class="group">
+    <%= f.input :start_date %>
+  </div>
+
+  <div class="group">
+    <%= f.input :return_date %>
+  </div>
+
+  <div class="group">
+    <%= f.input :description %>
+  </div>
+
+
+  <%= f.submit "Submit", data: { disable_with: "Submitting..." } %>
+
+<% end %>
