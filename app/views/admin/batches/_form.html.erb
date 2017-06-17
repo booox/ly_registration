@@ -4,6 +4,19 @@
     <%= f.input :title %>
   </div>
 
-  <%= f.submit "Submit", data: { disable_with: "Submitting..." } %>
+  <div class="group">
+    <%= f.input :start_date, as: :string, label: "选择线路出发日期", class: 'form-control'  %>
+  </div>
+
+  <div class="group">
+    <%= f.input :return_date, as: :string, label: "选择线路返回日期", class: "form-control" %>
+  </div>
+
+  <%= f.submit "Submit", data: { disable_with: "Submitting..." }, class: "btn btn-primary" %>
 
 <% end %>
+
+<script>
+  $("#batch_start_date").datepicker( { format: "yyyy-mm-dd" } );
+  $("#batch_return_date").datepicker( { format: "yyyy-mm-dd" } );
+</script>

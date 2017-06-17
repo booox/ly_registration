@@ -6,6 +6,8 @@
   <thead>
     <tr>
       <th>批次名称</td>
+      <th>出发日期</td>
+      <th>返回日期</td>
       <th>操作</td>
     </tr>
   </thead>
@@ -14,6 +16,8 @@
     <% @batches.each do |batch| %>
     <tr>
       <td><%= batch.title %></td>
+      <td><%= batch.start_date.to_date %></td>
+      <td><%= batch.return_date.to_date %></td>
       <td>
         <%= link_to "Edit", edit_admin_batch_path(batch), class: "btn btn-primary btn-xs" %>
         <%= link_to "Delete", admin_batch_path(batch), method: :delete, class: "btn btn-danger btn-xs" %>

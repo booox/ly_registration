@@ -5,11 +5,11 @@ class Admin::LinesController < ApplicationController
 
   def index
     @lines = Line.all
+    @batches = Batch.all
   end
 
   def new
     @line = Line.new
-    @batches = Batch.all
   end
 
   def create
@@ -33,7 +33,7 @@ class Admin::LinesController < ApplicationController
     end
   end
 
-  def destory
+  def destroy
     @line.destroy
     redirect_to admin_lines_path
   end
@@ -41,7 +41,7 @@ class Admin::LinesController < ApplicationController
   private
 
   def line_params
-    params.require(:line).permit(:title, :description, :start_date, :return_date, :batch_id)
+    params.require(:line).permit(:title, :description, :days, :transportations => [])
   end
 
   def find_line

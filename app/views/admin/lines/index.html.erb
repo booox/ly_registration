@@ -5,11 +5,10 @@
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th>批次</td>
       <th>线路名称</td>
-      <th>出发日期</td>
-      <th>返回日期</td>
-      <th>天数</td>
+      <th>线路天数</td>
+      <th>出行方式</td>
+      <th>线路行程</td>
       <th>操作</td>
     </tr>
   </thead>
@@ -17,11 +16,13 @@
   <tbody>
     <% @lines.each do |line| %>
     <tr>
-      <td><%= line.batch.title %></td>
       <td><%= line.title %></td>
-      <td><%= line.start_date.to_date %></td>
-      <td><%= line.return_date.to_date %></td>
       <td><%= line.days %></td>
+      <td>
+        <%= render_transportations(line.transportations) %>
+        <%#= eval(line.transportations).map { |f| t(f, scope: "line.transportations") }.join('，') %>
+      </td>
+      <td><%= simple_format(line.description) %></td>
       <td>
         <%= link_to "Edit", edit_admin_line_path(line), class: "btn btn-primary btn-xs" %>
         <%= link_to "Delete", admin_line_path(line), method: :delete, class: "btn btn-danger btn-xs" %>

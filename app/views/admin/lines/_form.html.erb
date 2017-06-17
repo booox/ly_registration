@@ -5,15 +5,12 @@
   </div>
 
   <div class="group">
-    <%= f.input :batch_id, collection: Batch.all.map{ |b| [b.title, b.id] }, class: "form-control", label: "选择批次" %>
+    <%= f.input :days, label: "天数" %>
   </div>
 
   <div class="group">
-    <%= f.input :start_date, as: :string, label: "选择线路出发日期", class: 'form-control'  %>
-  </div>
-
-  <div class="group">
-    <%= f.input :return_date, as: :string, label: "选择线路返回日期", class: "form-control" %>
+    <%= f.input :transportations, label: "交通工具", as: :check_boxes, collection: Line::TRANSPORATATIONS.map{ |s| [t(s, :scope => "line.transportations"), s ] },
+            include_blank: false, include_hidden: false %>
   </div>
 
   <div class="group">
@@ -26,7 +23,5 @@
 <% end %>
 
 <script>
-  $("#line_start_date").datepicker( { format: "yyyy-mm-dd" } );
-  $("#line_return_date").datepicker( { format: "yyyy-mm-dd" } );
   autosize($('#line_description'));
 </script>
