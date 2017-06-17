@@ -40,6 +40,7 @@ gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'devise'
 gem 'font-awesome-rails'
+gem 'bootstrap-datepicker-rails'
 
 
 group :development, :test do

@@ -1,26 +1,32 @@
 <%= simple_form_for [:admin, @line] do |f| %>
 
   <div class="group">
-    <%= f.input :title %>
+    <%= f.input :title, label: "线路名称" %>
   </div>
 
   <div class="group">
-    <%= f.select :batch_id, Batch.all.map{ |b| [b.title, b.id] }, {}, class: "form-control" %>
+    <%= f.input :batch_id, collection: Batch.all.map{ |b| [b.title, b.id] }, class: "form-control", label: "选择批次" %>
   </div>
 
   <div class="group">
-    <%= f.input :start_date %>
+    <%= f.input :start_date, as: :string, label: "选择线路出发日期", class: 'form-control'  %>
   </div>
 
   <div class="group">
-    <%= f.input :return_date %>
+    <%= f.input :return_date, as: :string, label: "选择线路返回日期", class: "form-control" %>
   </div>
 
   <div class="group">
-    <%= f.input :description %>
+    <%= f.input :description, label: "请输入线路描述(行程)" %>
   </div>
 
 
-  <%= f.submit "Submit", data: { disable_with: "Submitting..." } %>
+  <%= f.submit "Submit", data: { disable_with: "Submitting..." }, class: "btn btn-primary" %>
 
 <% end %>
+
+<script>
+  $("#line_start_date").datepicker( { format: "yyyy-mm-dd" } );
+  $("#line_return_date").datepicker( { format: "yyyy-mm-dd" } );
+  autosize($('#line_description'));
+</script>
