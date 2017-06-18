@@ -1,14 +1,10 @@
-<div class="pull-right" style="padding-bottom: 20px;">
-  <%= link_to("新增线路", new_admin_line_path, class: "btn btn-primary btn-sm" ) %>
-</div>
-
 <table class="table table-bordered">
   <thead>
     <tr>
       <th>线路名称</td>
       <th>线路天数</td>
       <th>出行方式</td>
-      <th class="line_description">线路行程</td>
+      <th>已报人数</td>
       <th>操作</td>
     </tr>
   </thead>
@@ -16,16 +12,16 @@
   <tbody>
     <% @lines.each do |line| %>
     <tr>
-      <td><%= line.title %></td>
+      <td><%= link_to(line.title, line_path(line)) %></td>
       <td><%= line.days %></td>
       <td>
         <%= render_transportations(line.transportations) %>
         <%#= eval(line.transportations).map { |f| t(f, scope: "line.transportations") }.join('，') %>
       </td>
-      <td class="line_description"><%= simple_format(line.description) %></td>
+      <td><%= 15 %></td>
       <td>
-        <%= link_to "Edit", edit_admin_line_path(line), class: "btn btn-primary btn-xs" %>
-        <%= link_to "Delete", admin_line_path(line), method: :delete, class: "btn btn-danger btn-xs" %>
+        <%= link_to "报名", registration_line_path(line), class: "btn btn-primary btn-xs" %>
+        <%#= link_to "Delete", admin_line_path(line), method: :delete, class: "btn btn-danger btn-xs" %>
       </td>
     </tr>
     <% end %>

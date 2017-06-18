@@ -1,0 +1,28 @@
+<h2><%= @line.title %></h2>
+
+<table class="table table-hover table-responsive line-detail">
+
+    <tr>
+      <th>线路名称</th>
+      <td><%= @line.title %></td>
+    </tr>
+    <tr>
+      <th>线路天数</th>
+      <td><%= @line.days %></td>
+    </tr>
+    <tr>
+      <th>出行方式</th>
+      <td><%= render_transportations(@line.transportations) %></td>
+    </tr>
+    <tr>
+      <th>已报人数</th>
+      <td><%= @line.title %></td>
+    </tr>
+    <tr>
+      <th>具体行程</th>
+      <td><%= simple_format(@line.description) %></td>
+    </tr>
+
+</table>
+
+<p><%= link_to("报名", new_registration_path, class: "btn btn-primary") %></p>
