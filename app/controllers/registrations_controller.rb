@@ -1,6 +1,6 @@
 class RegistrationsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_registration, only: [:show, :edit, :update, :destroy]
+  before_action :find_registration, only: [:show, :edit, :update, :destroy, :step1, :step1_update, :step2, :step2_update]
 
   def index
     @registration = current_user.registration
@@ -19,9 +19,32 @@ class RegistrationsController < ApplicationController
     @registration.user_id = current_user.id
 
     if @registration.save!
-      redirect_to registration_path(@registration), notice: t("registration.new_registration_ok")
+      # redirect_to registration_path(@registration), notice: t("registration.new_registration_ok")
+      redirect_to step2_registration_path(@registration)
     else
       render :new
+    end
+  end
+
+  def step1
+  end
+
+  def step1_update
+    if @registration.update(registration_params)
+      redirect_to step2_registration_path(@registration)
+    else
+      render :step1
+    end
+  end
+
+  def step2
+  end
+
+  def step2_update
+    if @registration.update(registration_params)
+      redirect_to registration_path
+    else
+      render :step2
     end
   end
 
@@ -38,7 +61,7 @@ class RegistrationsController < ApplicationController
 
   def destroy
     @registration.destroy
-    redirect_to root_path
+    redirect_to lines_path
   end
 
   private

@@ -1,0 +1,32 @@
+<h3><%= t("registration.new_registration") %> Step 2 - 确定住宿及家属信息</h3>
+
+<%= simple_form_for @registration do |f| %>
+
+  <div class="group">
+    <%= f.label "是否包间" %><br>
+    <%= radio_button 'registration', 'is_room_share', false, {:class => "room_share room_share_no"} %>   包间
+    <%= radio_button 'registration', 'is_room_share', true, {:class => "room_share room_share_yes"} %>   合住
+  </div>
+
+  <div class="group" id="room_mate" style="display:none">
+    <%= f.input :room_mate, label: "合住人" %>
+  </div>
+
+  <br>
+
+  <%#= f.submit "上一步", data: { disable_with: "Submitting..." }, class: "btn btn-primary" %>
+  <%= link_to "上一步", step1_registration_path(@registration), class: "btn btn-default" %>
+  <%= f.submit t("registration.submit"), data: { disable_with: "Submitting..." }, class: "btn btn-primary" %>
+  <%#= f.submit "保存下一步", data: { disable_with: "Submitting..." }, class: "btn btn-primary" %>
+
+<% end %>
+
+<script>
+  //
+  // $('#registration_line_id_<%#= @selected_line.id %>').prop('checked', true);
+
+  // room_share
+  $(".room_share").on("change", function(){
+    $("#room_mate").toggle($(this).hasClass("room_share_yes"));
+  })
+</script>

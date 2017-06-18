@@ -27,6 +27,10 @@
 </table>
 <p>
   <%= link_to t("registration.edit_registration"), edit_registration_path(current_user.registration), class: "btn btn-success btn-ms" %>
+  <%= link_to t("registration.delete_registration"),
+              registration_path(current_user.registration),
+              method: :delete, class: "btn btn-danger btn-ms",
+              data: { confirm: "该操作不能撤消，确定要删除该报名信息吗？" } %>
 </p>
 <% else %>
   <p>暂无报名信息，去查看线路</p>
