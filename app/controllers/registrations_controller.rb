@@ -3,7 +3,7 @@ class RegistrationsController < ApplicationController
   before_action :find_registration, only: [:show, :edit, :update, :destroy]
 
   def index
-    @registrations = Registration.all
+    @registration = current_user.registration
   end
 
   def show
