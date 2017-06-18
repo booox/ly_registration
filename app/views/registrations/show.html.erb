@@ -1,0 +1,26 @@
+<h2><%= t("registration.show_title") %></h2>
+
+<table class="table table-hover table-responsive line-detail">
+
+    <tr>
+      <th>批次</th>
+      <td><%= @registration.batch.title %></td>
+    </tr>
+    <tr>
+      <th>线路</th>
+      <td><%= @registration.line.title %></td>
+    </tr>
+    <tr>
+      <th><%= t("registration.is_room_share") %></th>
+      <td><%= render_room_share(@registration.is_room_share) %></td>
+    </tr>
+    <% if @registration.is_room_share %>
+    <tr>
+      <th>合住人</th>
+      <td><%= @registration.room_mate %></td>
+    </tr>
+    <% end %>
+
+</table>
+
+<p><%= link_to(t("registration.edit_registration"), edit_registration_path(@registration), class: "btn btn-primary") %></p>

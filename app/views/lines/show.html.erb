@@ -25,4 +25,4 @@
 
 </table>
 
-<p><%= link_to("报名", new_registration_path, class: "btn btn-primary") %></p>
+<p><%= link_to(t("registration.new_registration"), new_registration_path(:selected_line_id => @line.id), class: "btn btn-primary") %></p>

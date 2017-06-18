@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170617152422) do
+ActiveRecord::Schema.define(version: 20170618035825) do
 
   create_table "batches", force: :cascade do |t|
     t.string   "title"
@@ -27,6 +27,16 @@ ActiveRecord::Schema.define(version: 20170617152422) do
     t.datetime "updated_at",      null: false
     t.integer  "days"
     t.text     "transportations"
+  end
+
+  create_table "registrations", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "batch_id"
+    t.integer  "line_id"
+    t.string   "room_mate"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.boolean  "is_room_share", default: true
   end
 
   create_table "users", force: :cascade do |t|

@@ -16,3 +16,12 @@ u.password_confirmation = "abcabc"
 
 u.is_admin = true
 u.save
+
+## Add Batches
+
+puts "Create Batches..."
+Batch.create!([title: "第一批",
+                start_date: 2017-7-24,
+                return_date: 2017-7-28])
+
+puts "Batches created..."

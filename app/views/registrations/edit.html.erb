@@ -1,0 +1,39 @@
+<h2><%= t("registration.edit_registration") %></h2>
+
+<%= simple_form_for @registration do |f| %>
+
+  <div class="group">
+    <%= f.input :batch_id, label: "疗养批次", as: :radio_buttons, collection: Batch.all.map{ |s| [ "#{s.title} (#{s.start_date.to_date} 至 #{s.return_date.to_date})", s.id ] } %>
+  </div>
+
+  <div class="group">
+    <%= f.input :line_id, label: "疗养线路", as: :radio_buttons, collection: Line.all.map{ |s| [ "#{s.title} (#{s.days} 天)", s.id ] } %>
+  </div>
+
+  <div class="group">
+    <%#= f.input :is_room_share, label: "是否包间", as: :radio_buttons,
+            collection: [["合住", true], ["包间(与家人合住算包间，与同事合住不算包间)", false]],
+            :include_blank => false,
+            :input_html => { :class => "room_mate" } %>
+    <%= f.label "是否包间" %><br>
+    <%= radio_button 'registration', 'is_room_share', false, {:class => "room_share room_share_no"} %>   包间
+    <%= radio_button 'registration', 'is_room_share', true, {:class => "room_share room_share_yes"} %>   合住
+  </div>
+
+  <div class="group" id="room_mate" style="display:none">
+    <%= f.input :room_mate, label: "合住人" %>
+  </div>
+
+  <br>
+
+  <%= f.submit t("registration.submit"), data: { disable_with: "Submitting..." }, class: "btn btn-primary" %>
+
+<% end %>
+
+<script>
+  //
+  // room_share
+  $(".room_share").on("change", function(){
+    $("#room_mate").toggle($(this).hasClass("room_share_yes"));
+  })
+</script>
