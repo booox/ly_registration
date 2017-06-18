@@ -25,4 +25,11 @@
 
 </table>
 
-<p><%= link_to(t("registration.new_registration"), new_registration_path(:selected_line_id => @line.id), class: "btn btn-primary") %></p>
+<p>
+  <%#= link_to(t("registration.new_registration"), new_registration_path(:selected_line_id => @line.id), class: "btn btn-primary") %>
+  <% if !current_user.registration.present? %>
+    <%= link_to t("registration.new_registration"), new_registration_path(:selected_line_id => line.id), class: "btn btn-primary btn-xs" %>
+  <% else %>
+    <%= link_to t("registration.edit_registration"), edit_registration_path(current_user.registration), class: "btn btn-success btn-xs" %>
+  <% end %>
+</p>

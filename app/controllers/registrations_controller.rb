@@ -3,7 +3,7 @@ class RegistrationsController < ApplicationController
   before_action :find_registration, only: [:show, :edit, :update, :destroy]
 
   def index
-
+    @registrations = Registration.all
   end
 
   def show
@@ -18,7 +18,7 @@ class RegistrationsController < ApplicationController
     @registration = Registration.new(registration_params)
     @registration.user_id = current_user.id
 
-    if @registration.save
+    if @registration.save!
       redirect_to registration_path(@registration), notice: t("registration.new_registration_ok")
     else
       render :new
