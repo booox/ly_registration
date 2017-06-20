@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170618035825) do
+ActiveRecord::Schema.define(version: 20170619113540) do
 
   create_table "batches", force: :cascade do |t|
     t.string   "title"
@@ -27,6 +27,17 @@ ActiveRecord::Schema.define(version: 20170618035825) do
     t.datetime "updated_at",      null: false
     t.integer  "days"
     t.text     "transportations"
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "phonenumber"
+    t.string   "cnid"
+    t.string   "gender"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "registrations", force: :cascade do |t|

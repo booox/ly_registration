@@ -7,7 +7,8 @@ Rails.application.routes.draw do
     confirmations: 'users/confirmations'
   }
 
-  # resources :users
+  resource :profile, :controller => "user_profiles"
+
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -25,6 +26,8 @@ Rails.application.routes.draw do
       patch "steps/1/update" => "registrations#step1_update", :as => :update_step1
       get "steps/2" => "registrations#step2", :as => :step2
       patch "steps/2/update" => "registrations#step2_update", :as => :update_step2
+      get "steps/3" => "registrations#step3", :as => :step3
+      patch "steps/3/update" => "registrations#step3_update", :as => :update_step3
     end
   end
 end

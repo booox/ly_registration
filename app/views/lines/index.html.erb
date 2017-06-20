@@ -16,12 +16,11 @@
       <td><%= line.days %></td>
       <td>
         <%= render_transportations(line.transportations) %>
-        <%#= eval(line.transportations).map { |f| t(f, scope: "line.transportations") }.join('，') %>
       </td>
       <td><%= 15 %></td>
       <td>
         <% if !current_user.registration.present? %>
-          <%= link_to t("registration.new_registration"), new_registration_path(:selected_line_id => line.id), class: "btn btn-primary btn-xs" %>
+          <%= link_to t("registration.new_registration"), edit_profile_path(:selected_line_id => line.id), class: "btn btn-primary btn-xs" %>
         <% else %>
           <%= link_to t("registration.edit_registration"), edit_registration_path(current_user.registration), class: "btn btn-success btn-xs" %>
         <% end %>

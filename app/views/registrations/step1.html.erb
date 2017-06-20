@@ -1,6 +1,6 @@
-<h3><%= t("registration.new_registration") %> Step 1 - 确定线路及个人信息</h3>
+<h3><%= t("registration.new_registration") %> Step 2 - 确定批次及线路</h3>
 
-<%= simple_form_for @registration, url: update_step1_registration_path(@registration) do |f| %>
+<%= simple_form_for @registration, url: update_registration_path(@registration) do |f| %>
 
   <%= render :partial => "form", :locals => { :f => f } %>
 

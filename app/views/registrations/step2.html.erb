@@ -1,6 +1,6 @@
-<h3><%= t("registration.new_registration") %> Step 2 - 确定住宿及家属信息</h3>
+<h3><%= t("registration.new_registration") %> Step 2 - 确定住宿或家属信息</h3>
 
-<%= simple_form_for @registration do |f| %>
+<%= simple_form_for @registration, url: update_step2_registration_path(@registration) do |f| %>
 
   <div class="group">
     <%= f.label "是否包间" %><br>
@@ -15,7 +15,7 @@
   <br>
 
   <%#= f.submit "上一步", data: { disable_with: "Submitting..." }, class: "btn btn-primary" %>
-  <%= link_to "上一步", step1_registration_path(@registration), class: "btn btn-default" %>
+  <%#= link_to "上一步", step1_registration_path(@registration), class: "btn btn-default" %>
   <%= f.submit t("registration.submit"), data: { disable_with: "Submitting..." }, class: "btn btn-primary" %>
   <%#= f.submit "保存下一步", data: { disable_with: "Submitting..." }, class: "btn btn-primary" %>
 

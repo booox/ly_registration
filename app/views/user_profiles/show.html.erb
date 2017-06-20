@@ -1,0 +1,30 @@
+<h2>个人信息</h2>
+
+<table class="table table-hover table-responsive line-detail">
+
+    <tr>
+      <th>姓名</th>
+      <td><%= @profile.name %></td>
+    </tr>
+
+    <tr>
+      <th>性别</th>
+      <td><%= @profile.gender %></td>
+    </tr>
+
+    <tr>
+      <th>电话号码</th>
+      <td><%= @profile.phonenumber %></td>
+    </tr>
+
+    <tr>
+      <th>身份证号</th>
+      <td><%= @profile.cnid %></td>
+    </tr>
+
+</table>
+
+<p>
+  <%= link_to "编辑个人信息", edit_profile_path, class: "btn btn-success btn-sm" %>
+
+</p>

@@ -7,7 +7,6 @@
     <%= f.input :line_id, label: "疗养线路", as: :radio_buttons, collection: Line.all.map{ |s| [ "#{s.title} (#{s.days} 天)", s.id ] } %>
   </div>
 
-  <br>
 
   <%#= f.submit t("registration.submit"), data: { disable_with: "Submitting..." }, class: "btn btn-primary" %>
-  <%= f.submit "保存下一步", data: { disable_with: "Submitting..." }, class: "btn btn-primary" %>
+  <%= f.submit t("registration.savenext"), data: { disable_with: "Submitting..." }, class: "btn btn-primary" %>

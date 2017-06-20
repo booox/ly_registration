@@ -29,6 +29,7 @@
                       <% end %>
                       <li>
                         <%= link_to("报名信息", registrations_path) %>
+                        <%= link_to("个人信息", profile_path) %>
                       </li>
                       <li>
                           <%= link_to(content_tag(:i, "登出", class: "fa fa-sign-out"), destroy_user_session_path, method: :delete) %>

@@ -216,7 +216,8 @@ zh-CN:
       plane: 飞机
   registration:
     submit: 提交报名信息
-    new_registration: 我要报名
+    savenext: 保存到下一步
+    new_registration: 报名
     edit_registration: 修改报名信息
     delete_registration: 删除报名信息
     new_registration_ok: 报名成功
