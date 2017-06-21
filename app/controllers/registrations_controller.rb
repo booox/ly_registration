@@ -19,7 +19,7 @@ class RegistrationsController < ApplicationController
     @registration = Registration.new(registration_params)
     @registration.user_id = current_user.id
 
-    if @registration.save
+    if @registration.save!
       # redirect_to registration_path(@registration), notice: t("registration.new_registration_ok")
       redirect_to step2_registration_path(@registration)
     else
@@ -33,7 +33,7 @@ class RegistrationsController < ApplicationController
 
   def step2_update
     if @registration.update(registration_params)
-      redirect_to registration_path
+      redirect_to registration_path, notice: t("registration.new_registration_ok")
     else
       render :step2
     end

@@ -10,4 +10,6 @@ class Registration < ApplicationRecord
   validates :batch_id, presence: true
   validates :line_id, presence: true
   validates_uniqueness_of :user_id
+  validates :room_mate, presence: true, if: Proc.new { |a| a.is_room_share? }
+
 end

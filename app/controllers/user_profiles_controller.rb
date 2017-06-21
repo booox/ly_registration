@@ -16,7 +16,7 @@ class UserProfilesController < ApplicationController
       if @selected_line_id
         redirect_to :controller => "registrations", :action => "new", :selected_line_id => @selected_line_id
       else
-        redirect_to root_path
+        redirect_to profile_path
       end
     else
       render :edit
@@ -27,7 +27,8 @@ class UserProfilesController < ApplicationController
 
   def find_user_profile
     @user = current_user
-    @profile = @user.profile || @user.create_profile
+    # @profile = @user.profile || @user.create_profile!
+    @profile = @user.profile || @user.build_profile
   end
 
   def profile_params
