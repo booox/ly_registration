@@ -11,10 +11,6 @@
   </div>
 
   <div class="group">
-    <%#= f.input :is_room_share, label: "是否包间", as: :radio_buttons,
-            collection: [["合住", true], ["包间(与家人合住算包间，与同事合住不算包间)", false]],
-            :include_blank => false,
-            :input_html => { :class => "room_mate" } %>
     <%= f.label "是否包间" %><br>
     <%= radio_button 'registration', 'is_room_share', false, {:class => "room_share room_share_no"} %>   包间
     <%= radio_button 'registration', 'is_room_share', true, {:class => "room_share room_share_yes"} %>   合住
@@ -35,5 +31,11 @@
   // room_share
   $(".room_share").on("change", function(){
     $("#room_mate").toggle($(this).hasClass("room_share_yes"));
+  })
+
+  $(document).ready(function(){
+    if ($(".room_share").prop("checked", true)){
+      $("#room_mate").css('display', 'block');
+    }
   })
 </script>

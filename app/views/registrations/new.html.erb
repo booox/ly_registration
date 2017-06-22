@@ -10,4 +10,9 @@
   //
   $('#registration_line_id_<%= @selected_line.id %>').prop('checked', true);
 
+  // room_share
+  $(".room_share").on("change", function(){
+    $("#room_mate").toggle($(this).hasClass("room_share_yes"));
+  })
+
 </script>

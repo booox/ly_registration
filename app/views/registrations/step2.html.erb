@@ -1,16 +1,19 @@
-<h3><%= t("registration.new_registration") %> Step 2 - 确定住宿或家属信息</h3>
+<h3><%= t("registration.new_registration") %> Step 3 - 确定住宿或家属信息</h3>
 
 <%= simple_form_for @registration, url: update_step2_registration_path(@registration) do |f| %>
 
   <div class="group">
     <%= f.label "是否包间" %><br>
-    <%= radio_button 'registration', 'is_room_share', false, {:class => "room_share room_share_no"} %>   包间
-    <%= radio_button 'registration', 'is_room_share', true, {:class => "room_share room_share_yes"} %>   合住
+    <%= radio_button 'registration', 'is_room_share', false, {:class => "room_share room_share_no"} %>
+          包间（一家人住在一起）<br>
+    <%= radio_button 'registration', 'is_room_share', true, {:class => "room_share room_share_yes"} %>
+          合住（与同事合住一间，在下面“合住人”中填写同事姓名）<br>
   </div>
 
   <div class="group" id="room_mate" style="display:none">
     <%= f.input :room_mate, label: "合住人" %>
   </div>
+
 
   <br>
 

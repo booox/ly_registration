@@ -7,6 +7,19 @@
     <%= f.input :line_id, label: "疗养线路", as: :radio_buttons, collection: Line.all.map{ |s| [ "#{s.title} (#{s.days} 天)", s.id ] } %>
   </div>
 
+  <div class="group">
+    <%= f.label "是否包间" %><br>
+    <%= radio_button 'registration', 'is_room_share', false, {:class => "room_share room_share_no"} %>
+          包间（一家人住在一起）<br>
+    <%= radio_button 'registration', 'is_room_share', true, {:class => "room_share room_share_yes"} %>
+          合住（与同事合住一间，在下面“合住人”中填写同事姓名）<br><br>
+  </div>
+
+  <div class="group" id="room_mate" style="display:none">
+    <%= f.input :room_mate, label: "合住人" %>
+  </div>
+
+
 
   <%#= f.submit t("registration.submit"), data: { disable_with: "Submitting..." }, class: "btn btn-primary" %>
-  <%= f.submit t("registration.savenext"), data: { disable_with: "Submitting..." }, class: "btn btn-primary" %>
+  <%= f.submit t("registration.submit"), data: { disable_with: "Submitting..." }, class: "btn btn-primary" %>

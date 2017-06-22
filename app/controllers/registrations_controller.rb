@@ -19,9 +19,8 @@ class RegistrationsController < ApplicationController
     @registration = Registration.new(registration_params)
     @registration.user_id = current_user.id
 
-    if @registration.save!
-      # redirect_to registration_path(@registration), notice: t("registration.new_registration_ok")
-      redirect_to step2_registration_path(@registration)
+    if @registration.save
+      redirect_to registration_path(@registration), notice: t("registration.new_registration_ok")
     else
       render :new
     end
