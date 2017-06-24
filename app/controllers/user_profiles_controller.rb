@@ -7,6 +7,7 @@ class UserProfilesController < ApplicationController
 
   def edit
     @step1 = params[:selected_line_id].present? ? "Step 1 " : ""
+    # byebug
   end
 
   def update
@@ -34,6 +35,4 @@ class UserProfilesController < ApplicationController
   def profile_params
     params.require(:profile).permit(:name, :phonenumber, :cnid, :gender)
   end
-
-
 end

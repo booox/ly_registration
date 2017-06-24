@@ -41,6 +41,7 @@ gem 'simple_form'
 gem 'devise'
 gem 'font-awesome-rails'
 gem 'bootstrap-datepicker-rails'
+gem 'simple_enum'
 
 
 group :development, :test do

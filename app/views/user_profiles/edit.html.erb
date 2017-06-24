@@ -1,13 +1,21 @@
 <h3><%= @step1 %>确认个人信息</h3>
 
-<%= simple_form_for @profile do |f| %>
+<%#= simple_form_for @profile do |f| %>
+<%= simple_form_for @profile, url: profile_path, method: 'patch' do |f| %>
 
   <div class="group">
     <%= f.input :name, label: "姓名" %>
   </div>
 
   <div class="group">
-    <%= f.input :gender, label: "性别" %>
+    <%#= f.label "性别" %>
+    <%#= f.select :gender, Profile::GENDERS,
+            { prompt: " ", selected: @profile.gender },
+            { class: "form-control string optional" } %>
+    <%#= f.input :location,:collection => @locations,:label_method => :location_name,:value_method => :id,:label => "Location" ,:include_blank => false %>
+
+    <%= f.input :gender, :collection => Profile::GENDERS.map{ |g,| [I18n.t("genders.#{g}"), g]},
+                    :label => "性别" , :include_blank => false %>
   </div>
 
   <div class="group">

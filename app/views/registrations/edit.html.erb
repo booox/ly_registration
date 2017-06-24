@@ -12,8 +12,33 @@
 
   <div class="group">
     <%= f.label "是否包间" %><br>
-    <%= radio_button 'registration', 'is_room_share', false, {:class => "room_share room_share_no"} %>   包间
-    <%= radio_button 'registration', 'is_room_share', true, {:class => "room_share room_share_yes"} %>   合住
+    <!-- <%#= radio_button 'registration', 'is_room_share', false, {:class => "room_share room_share_no", :checked => @registration.is_room_share} %>   包间 -->
+    <!-- <%#= radio_button 'registration', 'is_room_share', true, {:class => "room_share room_share_yes", :checked => @registration.is_room_share} %>   合住 -->
+
+    <%#= f.radio_button :is_room_share, "合住",  %>
+
+    <%= f.input :is_room_share, as: :radio_buttons,
+                :collection => [[true, '合住'], [false, '包间']],
+                label: false,
+                :label_method => :last,
+                :value_method => :first,
+                :input_html => { :class => 'room_share room_share_yes' },
+                :checked => @registration.is_room_share %>
+
+    <!-- <input class="radio_buttons optional room_share room_share_yes" type="radio" value="true" name="registration[is_room_share]" id="registration_is_room_share_true" checked="<%#= @registration.is_room_share %>"> 合住
+    <input class="radio_buttons optional room_share room_share_no" type="radio" value="true" name="registration[is_room_share]" id="registration_is_room_share_false" checked="<%#= @registration.is_room_share %>"> 包间 -->
+
+    <%#= f.input :is_room_share, as: :radio_buttons,
+                :collection => [[false, '包间']],
+                label: false,
+                :label_method => :last,
+                :value_method => :first,
+                # :item_wrapper_class => 'room_share room_share_no' + @is_room_share,
+                :input_html => { :class => 'room_share room_share_no' },
+                :checked => @registration.is_room_share %>
+
+
+
   </div>
 
   <div class="group" id="room_mate" style="display:none">
@@ -34,8 +59,24 @@
   })
 
   $(document).ready(function(){
-    if ($(".room_share").prop("checked", true)){
+    if ($(".room_share_no").prop("checked", true)){
+    // if ($("#registration_is_room_share_false").prop("checked", true)){
+      $("#room_mate").css('display', 'none');
+    }
+    if ($(".room_share_yes").prop("checked", true)){
+    // if ($("#registration_is_room_share_true").prop("checked", true)){
       $("#room_mate").css('display', 'block');
     }
-  })
+  });
+
+  function toggle_visibility(id){
+    var e = document.getElementById(id);
+    if(e.style.display == 'block'){
+      e.style.display == 'none';
+    } else{
+      e.style.display == 'block';
+    };
+  };
+
+
 </script>
