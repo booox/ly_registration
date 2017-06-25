@@ -2,52 +2,7 @@
 
 <%= simple_form_for @registration do |f| %>
 
-  <div class="group">
-    <%= f.input :batch_id, label: "疗养批次", as: :radio_buttons, collection: Batch.all.map{ |s| [ "#{s.title} (#{s.start_date.to_date} 至 #{s.return_date.to_date})", s.id ] } %>
-  </div>
-
-  <div class="group">
-    <%= f.input :line_id, label: "疗养线路", as: :radio_buttons, collection: Line.all.map{ |s| [ "#{s.title} (#{s.days} 天)", s.id ] } %>
-  </div>
-
-  <div class="group">
-    <%= f.label "是否包间" %><br>
-    <!-- <%#= radio_button 'registration', 'is_room_share', false, {:class => "room_share room_share_no", :checked => @registration.is_room_share} %>   包间 -->
-    <!-- <%#= radio_button 'registration', 'is_room_share', true, {:class => "room_share room_share_yes", :checked => @registration.is_room_share} %>   合住 -->
-
-    <%#= f.radio_button :is_room_share, "合住",  %>
-
-    <%= f.input :is_room_share, as: :radio_buttons,
-                :collection => [[true, '合住'], [false, '包间']],
-                label: false,
-                :label_method => :last,
-                :value_method => :first,
-                :input_html => { :class => 'room_share room_share_yes' },
-                :checked => @registration.is_room_share %>
-
-    <!-- <input class="radio_buttons optional room_share room_share_yes" type="radio" value="true" name="registration[is_room_share]" id="registration_is_room_share_true" checked="<%#= @registration.is_room_share %>"> 合住
-    <input class="radio_buttons optional room_share room_share_no" type="radio" value="true" name="registration[is_room_share]" id="registration_is_room_share_false" checked="<%#= @registration.is_room_share %>"> 包间 -->
-
-    <%#= f.input :is_room_share, as: :radio_buttons,
-                :collection => [[false, '包间']],
-                label: false,
-                :label_method => :last,
-                :value_method => :first,
-                # :item_wrapper_class => 'room_share room_share_no' + @is_room_share,
-                :input_html => { :class => 'room_share room_share_no' },
-                :checked => @registration.is_room_share %>
-
-
-
-  </div>
-
-  <div class="group" id="room_mate" style="display:none">
-    <%= f.input :room_mate, label: "合住人" %>
-  </div>
-
-  <br>
-
-  <%= f.submit t("registration.submit"), data: { disable_with: "Submitting..." }, class: "btn btn-primary" %>
+  <%= render :partial => "form", :locals => { :f => f } %>
 
 <% end %>
 
@@ -56,27 +11,19 @@
   // room_share
   $(".room_share").on("change", function(){
     $("#room_mate").toggle($(this).hasClass("room_share_yes"));
+    // return false;
   })
 
-  $(document).ready(function(){
-    if ($(".room_share_no").prop("checked", true)){
-    // if ($("#registration_is_room_share_false").prop("checked", true)){
-      $("#room_mate").css('display', 'none');
-    }
-    if ($(".room_share_yes").prop("checked", true)){
-    // if ($("#registration_is_room_share_true").prop("checked", true)){
-      $("#room_mate").css('display', 'block');
-    }
-  });
-
-  function toggle_visibility(id){
-    var e = document.getElementById(id);
-    if(e.style.display == 'block'){
-      e.style.display == 'none';
-    } else{
-      e.style.display == 'block';
-    };
-  };
-
+  // $(document).ready(function(event){
+  //   // event.preventDefault();
+  //   // if ($(".room_share_no").prop("checked", true)){
+  //   if ($("#registration_is_room_share_false").attr("checked", true)){
+  //     $("#room_mate").css('display', 'none');
+  //   }
+  //   // if ($(".room_share_yes").prop("checked", true)){
+  //   if ($("#registration_is_room_share_true").attr("checked", true)){
+  //     $("#room_mate").css('display', 'block');
+  //   }
+  // });
 
 </script>

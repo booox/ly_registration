@@ -1,6 +1,9 @@
 
   <div class="group">
-    <%= f.input :batch_id, label: "疗养批次", as: :radio_buttons, collection: Batch.all.map{ |s| [ "#{s.title} (#{s.start_date.to_date} 至 #{s.return_date.to_date})", s.id ] } %>
+    <%= f.input :batch_id, label: "疗养批次",
+                as: :radio_buttons,
+                collection: Batch.all.map{ |s| [ "#{s.title} (#{s.start_date.to_date} 至 #{s.return_date.to_date})", s.id ] },
+                checked: Batch.first.id %>
   </div>
 
   <div class="group">
@@ -9,10 +12,9 @@
 
   <div class="group">
     <%= f.label "是否包间" %><br>
-    <%= radio_button 'registration', 'is_room_share', false, {:class => "room_share room_share_no"} %>
-          包间（一家人住在一起）<br>
-    <%= radio_button 'registration', 'is_room_share', true, {:class => "room_share room_share_yes"} %>
-          合住（与同事合住一间，在下面“合住人”中填写同事姓名）<br><br>
+    <%= f.collection_radio_buttons(:is_room_share, [[true, '合住'], [false, '包间']], :first, :second, boolean_style: :inline, item_wrapper_tag: false, checked: @registration.is_room_share ) do |b| %>
+      <% b.label { b.radio_button(class: room_share_class(b.value) ) + b.text } %>
+    <% end %>
   </div>
 
   <div class="group" id="room_mate" style="display:none">

@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   end
 
   resources :lines
+  resources :kins
   resources :registrations do
     member do
       get "steps/1" => "registrations#step1", :as => :step1

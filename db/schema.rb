@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170623002000) do
+ActiveRecord::Schema.define(version: 20170624103919) do
 
   create_table "batches", force: :cascade do |t|
     t.string   "title"
@@ -18,6 +18,17 @@ ActiveRecord::Schema.define(version: 20170623002000) do
     t.datetime "return_date"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "kins", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "cnid"
+    t.string   "phonenumber"
+    t.string   "gender"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["user_id"], name: "index_kins_on_user_id"
   end
 
   create_table "lines", force: :cascade do |t|

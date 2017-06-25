@@ -1,0 +1,32 @@
+<div class="pull-right" style="padding-bottom: 20px;">
+  <%= link_to("新增家属信息", new_kin_path, class: "btn btn-primary btn-sm" ) %>
+</div>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>姓名</td>
+      <th>性别</td>
+      <th>身份证号</td>
+      <th>手机号码</td>
+      <th>操作</td>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @kins.each do |kin| %>
+    <tr>
+      <td><%= kin.name %></td>
+      <td><%= t("genders.#{kin.gender}") %></td>
+      <td><%= kin.cnid %></td>
+      <td><%= kin.phonenumber %></td>
+      <td>
+        <%= link_to "Edit", edit_kin_path(kin), class: "btn btn-primary btn-xs" %>
+        <%= link_to "Delete", kin_path(kin), method: :delete,
+                      data: { confirm: "该操作不能撤消，确定要删除该信息吗？" },
+                      class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,2 @@
+class Kin < Profile
+end

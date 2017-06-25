@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_one :registration
   has_one :profile
+  has_many :kins
 
 
 

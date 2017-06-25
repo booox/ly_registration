@@ -9,7 +9,8 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li class="active"><%= link_to "疗养线路", lines_path %></li>
+              <li class="<%= active_class(lines_path) %>"><%= link_to "疗养线路", lines_path %></li>
+              <li class="<%= active_class(kins_path) %>"><%= link_to "亲属信息", kins_path %></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <% if !current_user %>
@@ -28,6 +29,7 @@
                         <li><%= link_to("线路管理", admin_lines_path) %></li>
                       <% end %>
                       <li><%= link_to("报名信息", registrations_path) %></li>
+                      <li><%= link_to("亲属信息", kins_path) %></li>
                       <li><%#= link_to("家属信息", kins_path) %></li>
                       <li class="divider"></li>
                       <li><%= link_to("个人信息", profile_path) %></li>

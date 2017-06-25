@@ -42,6 +42,7 @@ gem 'devise'
 gem 'font-awesome-rails'
 gem 'bootstrap-datepicker-rails'
 gem 'simple_enum'
+gem 'nested_form_fields'
 
 
 group :development, :test do

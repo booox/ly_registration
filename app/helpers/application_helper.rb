@@ -10,4 +10,8 @@ module ApplicationHelper
   def render_step1(line_id)
     line_id ? "Step 1 " : ""
   end
+
+  def active_class(link_path)
+    current_page?(link_path) ? "active" : ""
+  end
 end

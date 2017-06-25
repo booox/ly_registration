@@ -50,7 +50,6 @@ class RegistrationsController < ApplicationController
   end
 
   def edit
-    @is_room_share = @registration.is_room_share ? "yes" : "no"
   end
 
   def update

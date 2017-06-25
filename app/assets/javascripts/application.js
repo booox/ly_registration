@@ -17,4 +17,5 @@
 //= require bootstrap/dropdown
 //= require bootstrap-datepicker/core
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN
+//= require nested_form_fields
 //= require autosize.min
