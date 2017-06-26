@@ -4,3 +4,22 @@ zh-CN:
     needbed:
       true: 占床
       false: 不占床
+  line:
+    transportations:
+      bus: 汽车
+      train: 火车
+      ship: 轮船
+      plane: 飞机
+  registration:
+    submit: 提交报名信息
+    savenext: 保存到下一步
+    new_registration: 报名
+    edit_registration: 修改报名信息
+    delete_registration: 删除报名信息
+    new_registration_ok: 报名成功
+    edit_registration_ok: 成功修改报名信息
+    show_title: 我的报名信息
+    admin_show_title: 报名信息汇总
+    is_room_share: 是否包间
+    room_share_true: 合住
+    room_share_false: 包间

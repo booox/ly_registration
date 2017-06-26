@@ -27,7 +27,7 @@
                       <% if current_user.admin? %>
                         <li><%= link_to("批次管理", admin_batches_path) %></li>
                         <li><%= link_to("线路管理", admin_lines_path) %></li>
-                        <li><%= link_to("报名管理", "#") %></li>
+                        <li><%= link_to("报名管理", admin_registrations_path) %></li>
                         <li class="divider"></li>
                       <% end %>
                       <li><%= link_to("个人信息", profile_path) %></li>

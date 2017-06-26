@@ -1,0 +1,17 @@
+<h2><%= t("registration.edit_registration") %></h2>
+
+<%= simple_form_for [:admin, @registration] do |f| %>
+
+  <%= render :partial => "form", :locals => { :f => f } %>
+
+<% end %>
+
+<script>
+  //
+  // room_share
+  $(".room_share").on("change", function(){
+    $("#room_mate").toggle($(this).hasClass("room_share_yes"));
+    // return false;
+  })
+
+</script>
