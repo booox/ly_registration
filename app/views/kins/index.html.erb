@@ -9,6 +9,7 @@
       <th>性别</td>
       <th>身份证号</td>
       <th>手机号码</td>
+      <th>占床</td>
       <th>操作</td>
     </tr>
   </thead>
@@ -20,6 +21,7 @@
       <td><%= t("genders.#{kin.gender}") %></td>
       <td><%= kin.cnid %></td>
       <td><%= kin.phonenumber %></td>
+      <td><%= kin.need_bed %></td>
       <td>
         <%= link_to "Edit", edit_kin_path(kin), class: "btn btn-primary btn-xs" %>
         <%= link_to "Delete", kin_path(kin), method: :delete,

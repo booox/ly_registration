@@ -23,4 +23,13 @@
 
 </table>
 
-<p><%= link_to(t("registration.edit_registration"), edit_registration_path(@registration), class: "btn btn-primary") %></p>
+<div>
+  <div class="btn-group">
+    <%= link_to(t("registration.edit_registration"), edit_registration_path(@registration), class: "btn btn-primary") %>
+  </div>
+  <div class="btn-group">
+    <%= link_to("添加同行亲属", new_kin_path, class: "btn btn-success") %>
+  </div>
+</div>
+<p></p>
+<p></p>

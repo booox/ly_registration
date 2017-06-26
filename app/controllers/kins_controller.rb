@@ -48,6 +48,6 @@ class KinsController < ApplicationController
   end
 
   def kin_params
-    params.require(:kin).permit(:name, :cnid, :phonenumber, :gender)
+    params.require(:kin).permit(:name, :cnid, :phonenumber, :gender, :need_bed)
   end
 end
