@@ -21,7 +21,7 @@
       <td><%= t("genders.#{kin.gender}") %></td>
       <td><%= kin.cnid %></td>
       <td><%= kin.phonenumber %></td>
-      <td><%= kin.need_bed %></td>
+      <td><%= render_needbed(kin.needbed) %></td>
       <td>
         <%= link_to "Edit", edit_kin_path(kin), class: "btn btn-primary btn-xs" %>
         <%= link_to "Delete", kin_path(kin), method: :delete,

@@ -1,0 +1,6 @@
+---
+zh-CN:
+  kins:
+    needbed:
+      true: 占床
+      false: 不占床

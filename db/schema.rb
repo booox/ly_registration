@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170626121041) do
+ActiveRecord::Schema.define(version: 20170626142855) do
 
   create_table "batches", force: :cascade do |t|
     t.string   "title"
@@ -47,8 +47,10 @@ ActiveRecord::Schema.define(version: 20170626121041) do
     t.string   "phonenumber"
     t.string   "cnid"
     t.string   "gender"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.string   "type"
+    t.boolean  "needbed",     default: false
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
