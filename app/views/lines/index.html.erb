@@ -4,7 +4,7 @@
       <th>线路名称</td>
       <th>线路天数</td>
       <th>出行方式</td>
-      <th>已报人数</td>
+      <th>已报(一批/二批)</td>
       <th>操作</td>
     </tr>
   </thead>
@@ -17,7 +17,9 @@
       <td>
         <%= render_transportations(line.transportations) %>
       </td>
-      <td><%= link_to line.registrations_count, line_registrations_path(line), class: "btn btn-primary btn-xs" %></td>
+      <td>
+        <%= link_to line.registrations_count, line_registrations_path(line), class: "btn btn-primary btn-xs" %>
+      </td>
       <td>
         <% if !current_user.registration.present? %>
           <%= link_to t("registration.new_registration"), edit_profile_path(:selected_line_id => line.id), class: "btn btn-primary btn-xs" %>

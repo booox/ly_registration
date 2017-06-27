@@ -2,8 +2,30 @@
 
 加上批次
 
-<ol class="breadcrumb">
-  <% @registrations.each do |registration| %>
-    <li><%= registration.user.profile.name %></li>
-  <% end %>
-</ol>
+
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= @batch_first.title %> (<%= @registrations_first.count %> 人)</h3>
+  </div>
+  <div class="panel-body">
+    <ol class="breadcrumb">
+      <% @registrations_first.each do |registration| %>
+        <li><%= registration.user.profile.name %></li>
+      <% end %>
+    </ol>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= @batch_second.title %> (<%= @registrations_second.count %> 人)</h3>
+  </div>
+  <div class="panel-body">
+    <ol class="breadcrumb">
+      <% @registrations_second.each do |registration| %>
+        <li><%= registration.user.profile.name %></li>
+      <% end %>
+    </ol>
+  </div>
+</div>
