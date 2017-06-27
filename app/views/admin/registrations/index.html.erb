@@ -24,7 +24,7 @@
       <td><%= registration.user.profile.name %></td>
       <td><%= registration.user.profile.phonenumber %></td>
       <td><%= registration.user.profile.cnid %></td>
-      <td><%= registration.user.kins.count %></td>
+      <td><%= registration.user.kins_count %></td>
       <td><%= render_room_share(registration.is_room_share) %></td>
       <td>
         <%= link_to t("general.edit"), edit_admin_registration_path(registration), class: "btn btn-success btn-xs" %>

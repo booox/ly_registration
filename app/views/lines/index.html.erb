@@ -17,7 +17,7 @@
       <td>
         <%= render_transportations(line.transportations) %>
       </td>
-      <td><%= 15 %></td>
+      <td><%= line.registrations_count %></td>
       <td>
         <% if !current_user.registration.present? %>
           <%= link_to t("registration.new_registration"), edit_profile_path(:selected_line_id => line.id), class: "btn btn-primary btn-xs" %>

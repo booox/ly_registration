@@ -43,7 +43,7 @@ gem 'font-awesome-rails'
 gem 'bootstrap-datepicker-rails'
 gem 'simple_enum'
 gem 'nested_form_fields'
-
+gem 'counter_culture'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

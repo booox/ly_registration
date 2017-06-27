@@ -4,6 +4,7 @@ class Registration < ApplicationRecord
 
   belongs_to :batch
   belongs_to :line
+  counter_culture :line, column_name: "registrations_count"
   belongs_to :user
 
   validates :user_id, presence: true

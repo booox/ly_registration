@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170626142855) do
+ActiveRecord::Schema.define(version: 20170627015107) do
 
   create_table "batches", force: :cascade do |t|
     t.string   "title"
@@ -26,19 +26,19 @@ ActiveRecord::Schema.define(version: 20170626142855) do
     t.string   "cnid"
     t.string   "phonenumber"
     t.string   "gender"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.boolean  "needbed",     default: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.index ["user_id"], name: "index_kins_on_user_id"
   end
 
   create_table "lines", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.integer  "days"
     t.text     "transportations"
+    t.integer  "registrations_count", default: 0, null: false
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 20170626142855) do
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.boolean  "is_admin",               default: false
+    t.integer  "kins_count",             default: 0,     null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
