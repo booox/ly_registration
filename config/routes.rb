@@ -20,7 +20,9 @@ Rails.application.routes.draw do
     resources :registrations
   end
 
-  resources :lines
+  resources :lines do
+    get "registrations" => "lines#registrations"
+  end
   resources :kins
   resources :registrations do
     member do

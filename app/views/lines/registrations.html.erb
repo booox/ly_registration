@@ -1,0 +1,9 @@
+<h3><%= @line.title %> 报名名单</h3>
+
+加上批次
+
+<ol class="breadcrumb">
+  <% @registrations.each do |registration| %>
+    <li><%= registration.user.profile.name %></li>
+  <% end %>
+</ol>
