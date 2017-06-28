@@ -28,4 +28,8 @@ class User < ApplicationRecord
   def admin?
     is_admin
   end
+
+  def display_name
+    self.nickname.present? ? self.nickname : (self.username.present? ? self.username : self.email.split("@").first )
+  end
 end
