@@ -8,7 +8,7 @@ class User < ApplicationRecord
   attr_accessor :login
 
   has_one :registration
-  has_one :profile
+  has_one :profile, :dependent => :destroy
   has_many :kins
 
 

@@ -3,7 +3,7 @@ class Profile < ApplicationRecord
 
   belongs_to :user
 
-  validates :name, :phonenumber, :cnid, :gender, presence: true
+  # validates :name, :phonenumber, :cnid, :gender, presence: true
 
   GENDERS = %w(male female)
   validates :gender, :inclusion => { :in => GENDERS }
